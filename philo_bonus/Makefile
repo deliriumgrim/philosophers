@@ -1,11 +1,16 @@
-NAME 	=	philo
+NAME 	=	philo_bonus
 
-CFILES	=	philo.c src/valid.c src/inits.c src/times.c\
-			src/utils.c src/conditions.c src/actions.c
+CFILES	=	philo_bonus.c\
+ 			src/valid_bonus.c\
+ 			src/inits_bonus.c\
+ 			src/times_bonus.c\
+			src/utils_bonus.c\
+			src/conditions_bonus.c\
+			src/actions_bonus.c
 
-OBJECTS	= $(CFILES:.c=.o)
+OBJECTS	=	$(CFILES:.c=.o)
 
-D_FILES =	$(patsubst %.c,%.d,$(CFILES))
+D_FILES	=	$(patsubst %.c,%.d,$(CFILES))
 
 CC = cc
 

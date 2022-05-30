@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "include/philo.h"
+#include "include/philo_bonus.h"
 
 void	*check_time_death(void *arg)
 {

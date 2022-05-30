@@ -10,29 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
-# include <string.h>
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
-# include <sys/stat.h>
 # include <sys/wait.h>
 # include <semaphore.h>
 # include <fcntl.h>
 
-# define TAKE_FORK "has taken a fork\n"
-# define EATING "is eating\n"
-# define SLEEPING "is sleeping\n"
-# define THINKING "is thinking\n"
-# define DIED "died\n"
-# define START_MS 60
-# define SLEEP 250
-# define DELAY_DEATH_MS 10
+# ifndef CONSTANT
+#  define CONSTANT
+#  define TAKE_FORK "has taken a fork\n"
+#  define EATING "is eating\n"
+#  define SLEEPING "is sleeping\n"
+#  define THINKING "is thinking\n"
+#  define DIED "died\n"
+#  define START_MS 60
+#  define SLEEP 250
+#  define DELAY_DEATH_MS 10
+# endif
 
 typedef struct s_data
 {

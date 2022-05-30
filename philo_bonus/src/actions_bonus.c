@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philo.h"
+#include "../include/philo_bonus.h"
 
 int	take_forks(t_philo *philo)
 {

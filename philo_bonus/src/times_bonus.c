@@ -9,50 +9,53 @@
 /*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/philo.h"
+#include "../include/philo_bonus.h"
 
-int	message(t_philo *philo, char *str)
+long	philo_time(void)
 {
-	long	time;
+	struct timeval	t;
 
-	time = philo_time() - philo->data->time_start - START_MS;
-	printf("%ld %d %s", time, philo->id, str);
-	return (0);
+	gettimeofday(&t, NULL);
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
 
-int	message_status(t_philo *philo, char *str)
+void	wait_time(t_philo *philo, long time)
 {
-	sem_wait(philo->data->sem_print);
-	if (cond_first_check_time_death(philo))
+	long	start;
+	long	now;
+
+	start = philo->data->time_start;
+	now = philo_time();
+	while (now < start + time)
 	{
-		message(philo, str);
-		sem_post(philo->data->sem_print);
-		return (1);
+		usleep(SLEEP);
+		now = philo_time();
 	}
-	sem_post(philo->data->sem_print);
-	return (0);
 }
 
-int	ft_exit(t_data *data, int mode, char *str_err)
+void	wait_start(t_philo *philo)
 {
-	printf("%s", str_err);
-	if (mode >= 2)
-		free(data->arr_pid);
-	if (mode >= 3)
+	long	first;
+	long	second;
+	long	third;
+
+	first = START_MS;
+	second = START_MS + philo->data->time_to_eat;
+	third = START_MS * 2 + philo->data->time_to_eat;
+	if (philo->data->num_of_philo == 1)
+		wait_time(philo, first);
+	else if (philo->id % 2 == 0)
+		wait_time(philo, second);
+	else
 	{
-		sem_close(data->sem_last_eat);
-		sem_close(data->sem_num_eat);
-		sem_close(data->sem_print);
-		sem_close(data->sem_forks);
+		if (philo->data->num_of_philo % 2 == 0)
+			wait_time(philo, first);
+		else
+		{
+			if (philo->id == philo->data->num_of_philo)
+				wait_time(philo, third);
+			else
+				wait_time(philo, first);
+		}
 	}
-	return (0);
-}
-
-void	*ft_waitpid(void *arg)
-{
-	pid_t	*pid;
-
-	pid = (pid_t *)arg;
-	waitpid(*pid, NULL, 0);
-	return (NULL);
 }

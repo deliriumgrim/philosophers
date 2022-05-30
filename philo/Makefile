@@ -1,10 +1,15 @@
 NAME 	=	philo
 
-CFILES	=	philo.c src/valid.c src/inits.c\
-			src/utils.c src/times.c src/conditions.c\
-			src/actions.c src/cleaner.c
+CFILES	=	philo.c\
+ 			src/valid.c\
+ 			src/inits.c\
+			src/utils.c\
+			src/times.c\
+			src/conditions.c\
+			src/actions.c\
+			src/cleaner.c
 
-OBJECTS	= $(CFILES:.c=.o)
+OBJECTS	=	$(CFILES:.c=.o)
 
 D_FILES =	$(patsubst %.c,%.d,$(CFILES))
 
@@ -21,7 +26,6 @@ $(NAME)	:	$(OBJECTS)
 
 %.o 	:	%.c Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ -MD
-
 
 include $(wildcard $(D_FILES))
 
