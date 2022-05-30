@@ -41,12 +41,8 @@ void	*philo_live(void *arg)
 
 	philo = (t_philo *)arg;
 	wait_start(philo);
-	//printf("philo %d start ->%ld\n", philo->id, philo_time() - philo->data->time_start);
 	if (pthread_create(&death_t, NULL, check_time_death, philo))
 		return (NULL);
-//	printf("id %d min fork %d max fork %d         l_f %d r_f %d\n", philo->id,
-//		   philo->min_fork, philo->max_fork,
-//		   philo->l_fork, philo->r_fork);
 	while (cond_check_data_dead(philo, 1))
 	{
 		if (cond_check_data_dead(philo, 2))

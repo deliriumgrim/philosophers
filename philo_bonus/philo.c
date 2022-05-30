@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drumfred <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/19 18:03:11 by drumfred          #+#    #+#             */
+/*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "include/philo.h"
 
 void	*check_time_death(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 	long	time;
 
 	philo = (t_philo *)arg;
@@ -51,7 +62,7 @@ void	philo_live(t_data *data, int id)
 	exit(ft_exit(data, 3, ""));
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 

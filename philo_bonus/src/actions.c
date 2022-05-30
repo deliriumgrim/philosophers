@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drumfred <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/19 18:03:11 by drumfred          #+#    #+#             */
+/*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/philo.h"
 
-int take_forks(t_philo *philo)
+int	take_forks(t_philo *philo)
 {
 	if (cond_first_check_time_death(philo) != 1)
 		return (0);
@@ -63,9 +74,9 @@ int	philo_sleeping(t_philo *philo)
 	return (1);
 }
 
-int thinking(t_philo *philo)
+int	thinking(t_philo *philo)
 {
-	long time;
+	long	time;
 
 	if (cond_first_check_time_death(philo) != 1)
 		return (0);
@@ -76,7 +87,8 @@ int thinking(t_philo *philo)
 	if (philo->data->time_to_eat > philo->data->time_to_sleep)
 	{
 		time = philo_time();
-		while (philo_time() < time + philo->data->time_to_eat - philo->data->time_to_sleep)
+		while (philo_time() < time + \
+		philo->data->time_to_eat - philo->data->time_to_sleep)
 			usleep(50);
 	}
 	if (philo->data->num_of_philo % 2)

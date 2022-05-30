@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drumfred <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/19 18:03:11 by drumfred          #+#    #+#             */
+/*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/philo.h"
 
-t_philo init_philo_struct(t_data *data, int id)
+t_philo	init_philo_struct(t_data *data, int id)
 {
 	t_philo	philo;
 
@@ -20,7 +31,8 @@ void	init_forks(t_data *data)
 	sem_unlink("/last_eat");
 	sem_unlink("/num_eat");
 	sem_unlink("/print");
-	data->sem_forks = sem_open("/forks", O_CREAT | O_EXCL, 0777, data->num_of_philo);
+	data->sem_forks = sem_open("/forks", O_CREAT | O_EXCL, \
+	0777, data->num_of_philo);
 	data->sem_last_eat = sem_open("/last_eat", O_CREAT | O_EXCL, 0777, 1);
 	data->sem_num_eat = sem_open("/num_eat", O_CREAT | O_EXCL, 0777, 1);
 	data->sem_print = sem_open("/print", O_CREAT | O_EXCL, 0777, 1);
@@ -53,7 +65,7 @@ int	init_data(t_data *data, int argc, char **argv)
 
 void	init_wait_pthread(t_data *data)
 {
-	int i;
+	int	i;
 
 	data->philo_thread = malloc(sizeof(pthread_t) * data->num_of_philo);
 	if (data->philo_thread == NULL)
@@ -81,7 +93,7 @@ void	init_wait_pthread(t_data *data)
 
 void	init_philo(t_data *data)
 {
-	int 	i;
+	int		i;
 	pid_t	pid;
 
 	data->arr_pid = malloc(sizeof(int) * data->num_of_philo);

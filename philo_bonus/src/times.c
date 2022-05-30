@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drumfred <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/19 18:03:11 by drumfred          #+#    #+#             */
+/*   Updated: 2022/02/19 18:03:15 by drumfred         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/philo.h"
 
 long	philo_time(void)
@@ -7,10 +18,11 @@ long	philo_time(void)
 	gettimeofday(&t, NULL);
 	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
-void	wait_time(t_philo *philo, long	time)
+
+void	wait_time(t_philo *philo, long time)
 {
 	long	start;
-	long 	now;
+	long	now;
 
 	start = philo->data->time_start;
 	now = philo_time();
@@ -24,8 +36,8 @@ void	wait_time(t_philo *philo, long	time)
 void	wait_start(t_philo *philo)
 {
 	long	first;
-	long 	second;
-	long 	third;
+	long	second;
+	long	third;
 
 	first = START_MS;
 	second = START_MS + philo->data->time_to_eat;

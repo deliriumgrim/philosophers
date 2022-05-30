@@ -99,7 +99,8 @@ int	thinking(t_philo *philo)
 	if (philo->data->time_to_eat > philo->data->time_to_sleep)
 	{
 		time = philo_time();
-		while (philo_time() < time + philo->data->time_to_eat - philo->data->time_to_sleep)
+		while (philo_time() < time + \
+		philo->data->time_to_eat - philo->data->time_to_sleep)
 			usleep(50);
 	}
 	if (philo->data->num_of_philo % 2)
