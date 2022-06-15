@@ -27,7 +27,7 @@ void	*check_time_death(void *arg)
 	{
 		message(philo, DIED);
 		time = philo_time();
-		while (philo_time() < time + philo->data->time_to_die)
+		while (philo_time() < time + philo->data->time_to_die + DELAY_DEATH_MS)
 			usleep(SLEEP);
 	}
 	sem_post(philo->data->sem_print);

@@ -25,7 +25,6 @@ t_philo	*init_philo_struct(t_data *data)
 	{
 		philo[i - 1].id = i;
 		philo[i - 1].data = data;
-		philo[i - 1].last_eat = 0;
 		if (data->max_eat != -1)
 			philo[i - 1].num_eat = 0;
 		else
@@ -45,7 +44,7 @@ int	init_philo(t_data *data, t_philo **philo)
 
 	*philo = init_philo_struct(data);
 	if (*philo == NULL)
-		return (0);
+		return (errors(4));
 	data->philo_t = malloc(sizeof(pthread_t) * data->num_of_philo);
 	if (!data->philo_t)
 		return (errors(4));
@@ -92,7 +91,6 @@ int	init_data(t_data *data, int argc, char **argv)
 {
 	data->death = 0;
 	data->max_eat = -1;
-	data->time_start = 0;
 	data->num_of_philo = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);

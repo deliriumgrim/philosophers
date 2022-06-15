@@ -30,7 +30,7 @@
 #  define SLEEPING "is sleeping\n"
 #  define THINKING "is thinking\n"
 #  define DIED "died\n"
-#  define START_MS 60
+#  define START_MS 10
 #  define SLEEP 250
 #  define DELAY_DEATH_MS 10
 # endif

@@ -50,7 +50,6 @@ void	init_forks(t_data *data)
 int	init_data(t_data *data, int argc, char **argv)
 {
 	data->max_eat = -1;
-	data->time_start = 0;
 	data->sem_forks = NULL;
 	data->arr_pid = NULL;
 	data->philo_thread = NULL;
@@ -96,9 +95,9 @@ void	init_philo(t_data *data)
 	int		i;
 	pid_t	pid;
 
-	data->arr_pid = malloc(sizeof(int) * data->num_of_philo);
+	data->arr_pid = malloc(sizeof(pid_t) * data->num_of_philo);
 	if (data->arr_pid == NULL)
-		exit(ft_exit(data, 1, "Error malloc failed\n"));
+		exit(ft_exit(data, 2, "Error malloc failed\n"));
 	i = -1;
 	pid = 1;
 	while (++i < data->num_of_philo)

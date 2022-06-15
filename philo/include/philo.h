@@ -27,7 +27,7 @@
 #  define SLEEPING "is sleeping\n"
 #  define THINKING "is thinking\n"
 #  define DIED "died\n"
-#  define START_MS 60
+#  define START_MS 10
 #  define DELAY_MS 10
 #  define SLEEP 250
 # endif

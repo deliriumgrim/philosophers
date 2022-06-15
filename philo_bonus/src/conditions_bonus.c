@@ -14,7 +14,7 @@
 int	cond_first_check_time_death(t_philo *philo)
 {
 	sem_wait(philo->data->sem_last_eat);
-	if (philo_time() - philo->last_eat < philo->data->time_to_die)
+	if (philo_time() - philo->last_eat <= philo->data->time_to_die)
 	{
 		sem_post(philo->data->sem_last_eat);
 		return (1);

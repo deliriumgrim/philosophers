@@ -92,6 +92,6 @@ int	thinking(t_philo *philo)
 			usleep(50);
 	}
 	if (philo->data->num_of_philo % 2)
-		usleep(SLEEP);
+		usleep(SLEEP * 2);
 	return (1);
 }
